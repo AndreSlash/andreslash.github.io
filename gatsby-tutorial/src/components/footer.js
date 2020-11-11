@@ -1,11 +1,20 @@
 import React from 'react'
-
-export const footer = () => {
+import {graphql, useStaticQuery} from 'gatsby'
+export const Footer = () => {
+    const data = useStaticQuery(graphql`
+    query{
+        site{
+        siteMetadata{
+            author
+        }
+        }
+    }
+`)
     return (
         <footer>
-            <p>Andrzej Serafin wszuystkie prawa zastrzezone</p>
+            <p> {data.site.siteMetadata.author} wszystkie prawa zastrzezone</p>
         </footer>
     )
 }
 
-export default footer
+export default Footer
