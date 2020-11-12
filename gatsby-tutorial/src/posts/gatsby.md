@@ -5,6 +5,8 @@ date: "2020-11-11"
 
 Nowy test blog 
 
+![obrazek](./bg.png)
+
 ## Topics covered
 
 1.Gatsby

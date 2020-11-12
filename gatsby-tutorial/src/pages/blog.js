@@ -7,10 +7,13 @@ const BlogPage=()=>{
             allMarkdownRemark{
             edges{
                 node{
-                frontmatter{
-                    title
-                    date
-                }
+                    frontmatter{
+                        title
+                        date
+                    }
+                    fields{
+                        slug
+                    }
                 }
             }
             }
@@ -24,10 +27,12 @@ const BlogPage=()=>{
             <ol>
                 {dataBlog.allMarkdownRemark.edges.map((edge)=>{
                     return(
-                        <li>
-                            <h2>{edge.node.frontmatter.title}</h2>
-                            <h4>{edge.node.frontmatter.date}</h4>
-                        </li>
+                        <Link key={edge.node.fields.slug} to={`/blog/${edge.node.fields.slug}`}>
+                            <li>
+                                <h2>{edge.node.frontmatter.title}</h2>
+                                <h4>{edge.node.frontmatter.date}</h4>
+                            </li>
+                        </Link>
                     )
                 })}
             </ol>
